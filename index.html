@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevenShadeX</title>
+    <script src="https://kit.fontawesome.com/YOUR_KIT_ID.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+<!-- Loading Screen -->
+<div id="loader">
+    <div class="loader-content">
+        <div class="loader-logo">RVNX</div>
+
+        <div class="loader-status" id="loaderStatus">
+            INITIALIZING SYSTEM...
+        </div>
+
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+
+        <div class="loader-percent" id="loaderPercent">0%</div>
+    </div>
+</div>
+    <!-- Background particles -->
+    <div class="particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- Navigation -->
+    <header>
+
+        <a href="#">Reven</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="#">Projs</a>
+            <a href="skills.html">Skills</a>
+            <div class="contact-dropdown">
+    <button class="contact-btn">Contact <span>⌄</span></button>
+
+    <div class="contact-menu">
+        <a href="https://discord.gg/96Gb3E3VrY" target="_blank">
+            <span>◈</span> Discord
+        </a>
+
+        <a href="https://github.com/RevenShadeX" target="_blank">
+            <span>◉</span> GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/revenshadex/" target="_blank">
+            <span>in</span> LinkedIn
+        </a>
+
+        <a href="https://www.youtube.com/channel/UC4MuUZgjky_bh49rJCM-KyA?sub_confirmation=1" target="_blank">
+            <span>▶</span> YouTube
+        </a>
+
+        <a href="mailto:revenshadex@gmail.com">
+            <span>✉</span> Email
+        </a>
+    </div>
+</div>
+        </nav>
+
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+        <section id="home">
+
+            <div>
+                <img
+                    src="Src/Crimson-Eyed Cyberpunk Wanderer.png"
+                    alt="RevenShadeX character"
+                >
+            </div>
+
+            <div>
+
+                <p class="Me">Hi, I'M</p>
+
+                <h1>RevenShadeX</h1>
+
+                <p class="roles">
+                    <span id="typing"></span>
+                    <span class="cursor">|</span>
+                </p>
+
+                <br>
+
+                <p>
+                    I'm a developer interested in web development,
+                    cybersecurity, technology, and creative projects.
+                </p>
+                <br>
+                <div class="status"> <p class="stat">● </p> AVAILABLE FOR PROJECTS</div> 
+                <a href="https://github.com/RevenShadeX?tab=repositories">View My Projects</a>
+                <a href="cv/Thisara_Sagara_CV.pdf" download>Download CV</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script>
+    const loader = document.getElementById("loader");
+    const progress = document.querySelector(".loader-progress");
+    const percent = document.getElementById("loaderPercent");
+    const status = document.getElementById("loaderStatus");
+
+    const messages = [
+        "INITIALIZING SYSTEM...",
+        "LOADING INTERFACE...",
+        "CONNECTING TO RVNX...",
+        "LOADING MODULES...",
+        "SYSTEM READY."
+    ];
+
+    let value = 0;
+    let messageIndex = 0;
+
+    const loading = setInterval(() => {
+        value += Math.floor(Math.random() * 8) + 4;
+
+        if (value >= 100) {
+            value = 100;
+            clearInterval(loading);
+
+            status.textContent = "SYSTEM READY.";
+
+            setTimeout(() => {
+                loader.classList.add("loaded");
+
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 250);
+        }
+
+        progress.style.width = value + "%";
+        percent.textContent = value + "%";
+
+        if (value > 20 && messageIndex === 0) {
+            messageIndex = 1;
+            status.textContent = messages[1];
+        }
+
+        if (value > 40 && messageIndex === 1) {
+            messageIndex = 2;
+            status.textContent = messages[2];
+        }
+
+        if (value > 65 && messageIndex === 2) {
+            messageIndex = 3;
+            status.textContent = messages[3];
+        }
+    }, 70);
+</script>
+
+</body>
+</html>
